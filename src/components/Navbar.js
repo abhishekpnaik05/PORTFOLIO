@@ -13,8 +13,7 @@ import {
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
 } from "react-icons/ai";
-
-
+import { MdWork } from "react-icons/md"; // Added for Experience icon
 import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
@@ -40,8 +39,7 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex">
-          
-          <h1>ABHISHEK</h1>
+          <h1>ABHISHEK P</h1>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
@@ -74,6 +72,16 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
+                to="/experience"
+                onClick={() => updateExpanded(false)}
+              >
+                <MdWork style={{ marginBottom: "2px" }} /> Experience
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
                 to="/project"
                 onClick={() => updateExpanded(false)}
               >
@@ -90,11 +98,19 @@ function NavBar() {
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+                <CgFileDocument style={{ marginBottom: "2px" }} /> CV
               </Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+  <Nav.Link
+    as={Link}
+    to="/contact"
+    onClick={() => updateExpanded(false)}
+  >
+    <ImBlog style={{ marginBottom: "2px" }} /> Contact
+  </Nav.Link>
+</Nav.Item>
 
-            
           </Nav>
         </Navbar.Collapse>
       </Container>
