@@ -7,7 +7,7 @@ import stock from "../../Assets/Projects/stoock.webp";
 import meet from "../../Assets/Projects/confera.webp";
 import portfolio from "../../Assets/Projects/portfolio.webp"
 import parking from "../../Assets/Projects/parking.webp";
-import commerce from "../../Assets/Projects/commerce.webp";
+import synapz from "../../Assets/Projects/synapz.jpg";
 
 function Projects() {
   return (
@@ -21,6 +21,18 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={synapz} 
+              isBlog={false}
+              title="AI Chat Application"
+              description="SYNAPZ is a full-stack AI chat platform that integrates multiple AI models via OpenRouter API.
+              It features real-time conversational interface with persistent MongoDB-backed chat history and JWT authentication.
+              Built with MERN stack and responsive dark-themed UI for seamless multi-device experience."
+              demo="https://synapz.onrender.com" 
+              ghLink="https://github.com/abhishekpnaik05/SYNAPZ" 
+            />
+          </Col>
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={stock}
@@ -81,15 +93,6 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={commerce}
-              isBlog={false}
-              title="E-Commerce Site"
-              description="Shop online for quality products. Easy checkout, fast delivery, and secure payments. Your one-stop shopping destination."
-              ghLink="https://github.com/"
-            />
-          </Col>
 
           
         </Row>

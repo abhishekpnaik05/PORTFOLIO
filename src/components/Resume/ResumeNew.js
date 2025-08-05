@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
-import pdf from "../../Assets/AbhishekP_FrontendDeveloper_Resume(1).pdf";
+import pdf from "../../Assets/Abhishek_P_FullStack_Developer_Resume.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 
 function ResumeNew() {
