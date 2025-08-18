@@ -50,27 +50,17 @@ function ResumeNew() {
                 position: "relative"
               }}
             >
-              <object
-                data={`${pdf}#view=FitH&page=1&zoom=100`} // Start from page 1, fit horizontally
-                type="application/pdf"
+              <iframe
+                src={`${pdf}#toolbar=0&navpanes=0&scrollbar=0&page=1&zoom=FitH`}
                 width="100%"
                 height="100%"
                 style={{ 
+                  border: "none",
                   display: "block",
                   margin: "0 auto"
                 }}
-              >
-                <embed
-                  src={`${pdf}#view=FitH&page=1&zoom=100`}
-                  type="application/pdf"
-                  width="100%"
-                  height="100%"
-                  style={{ 
-                    display: "block",
-                    margin: "0 auto"
-                  }}
-                />
-              </object>
+                title="Resume PDF"
+              />
             </div>
           </Col>
         </Row>
