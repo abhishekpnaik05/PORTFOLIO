@@ -6,11 +6,12 @@ import pdf from "../../Assets/Abhishek_P_Resume.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 
 function ResumeNew() {
-  const [width, setWidth] = useState(1200);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const updateWidth = () => {
-      setWidth(window.innerWidth);
+      const newWidth = window.innerWidth;
+      setIsMobile(newWidth <= 786);
     };
     
     updateWidth();
@@ -37,30 +38,42 @@ function ResumeNew() {
 
         <Row className="resume">
           <Col className="d-flex justify-content-center">
-            {/* PDF container sized to show exactly 2 pages */}
             <div 
               className="pdf-container"
               style={{ 
-                width: width > 786 ? "80%" : "95%",
-                height: width > 786 ? "1200px" : "1000px", // Increased mobile height for 2 pages
-                overflow: "hidden", // Hide overflow to show only 2 pages
+                width: isMobile ? "100%" : "80%",
+                height: isMobile ? "80vh" : "1200px",
                 border: "1px solid #ccc",
                 borderRadius: "8px",
                 boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                 position: "relative"
               }}
             >
-              <iframe
-                src={`${pdf}#toolbar=0&navpanes=0&scrollbar=0&page=1&zoom=FitH`}
-                width="100%"
-                height="100%"
-                style={{ 
-                  border: "none",
-                  display: "block",
-                  margin: "0 auto"
-                }}
-                title="Resume PDF"
-              />
+              {isMobile ? (
+                // Mobile Solution: Use PDF.js viewer or Google Docs viewer
+                <iframe
+                  src={`https://docs.google.com/viewer?url=${encodeURIComponent(window.location.origin + pdf)}&embedded=true`}
+                  width="100%"
+                  height="100%"
+                  style={{ 
+                    border: "none",
+                    display: "block"
+                  }}
+                  title="Resume PDF"
+                />
+              ) : (
+                // Desktop Solution: Direct PDF embed
+                <iframe
+                  src={`${pdf}#toolbar=0&navpanes=0&scrollbar=0&page=1&zoom=FitH`}
+                  width="100%"
+                  height="100%"
+                  style={{ 
+                    border: "none",
+                    display: "block"
+                  }}
+                  title="Resume PDF"
+                />
+              )}
             </div>
           </Col>
         </Row>
